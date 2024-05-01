@@ -24,9 +24,10 @@ public class Employees
     [StringLength(15, MinimumLength = 3, ErrorMessage = "{0} must be between 1 and 15 characters.")]
     public required string LastName { get; set; }
 
+    [Required(ErrorMessage = "{0} must be supplied")]
     [DataType(DataType.DateTime)]
     [Display(Name = "Hire Date", Description = "Date of the Employee was hired on.")]
-    [Required] public required DateTime HireDate { get; set; }
+    public required DateTime HireDate { get; set; }
 
     // Navigation property
     public List<EmployeePhones>? EmployeePhones { get; set; }
