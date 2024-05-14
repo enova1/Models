@@ -2,7 +2,10 @@
 
 public class HangfireRequest
 {
-    public string JobName { get; set; }
+    public required string JobName { get; set; }
+
+    public required string Email { get; set; }
+
     public RecurringOption CronExpression { get; set; }
 
 
