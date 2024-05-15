@@ -7,6 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Employee\**" />
+    <EmbeddedResource Remove="Employee\**" />
+    <None Remove="Employee\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="AuthUser.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Hangfire.Core" Version="1.8.12" />
   </ItemGroup>
 
