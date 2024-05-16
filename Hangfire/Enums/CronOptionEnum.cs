@@ -1,6 +1,4 @@
-﻿
-using System.ComponentModel;
-using Hangfire;
+﻿using Hangfire;
 
 namespace Models.Hangfire.Enums;
 
@@ -25,16 +23,16 @@ public static class CronOptionEnumExtensions
     /// <exception cref="ArgumentOutOfRangeException"></exception>
     public static string ToCronExpression(this CronOptionEnum cronOption)
     {
-        switch (cronOption)
+        return cronOption switch
         {
-            case CronOptionEnum.Minutely: return Cron.Minutely();
-            case CronOptionEnum.Hourly: return Cron.Hourly();
-            case CronOptionEnum.Daily: return Cron.Daily();
-            case CronOptionEnum.Weekly: return Cron.Weekly();
-            case CronOptionEnum.Monthly: return Cron.Monthly();
-            case CronOptionEnum.Yearly: return Cron.Yearly();
-            case CronOptionEnum.Never: return Cron.Never();
-            default: throw new ArgumentOutOfRangeException(nameof(cronOption));
-        }
+            CronOptionEnum.Minutely => Cron.Minutely(),
+            CronOptionEnum.Hourly => Cron.Hourly(),
+            CronOptionEnum.Daily => Cron.Daily(),
+            CronOptionEnum.Weekly => Cron.Weekly(),
+            CronOptionEnum.Monthly => Cron.Monthly(),
+            CronOptionEnum.Yearly => Cron.Yearly(),
+            CronOptionEnum.Never => Cron.Never(),
+            _ => throw new ArgumentOutOfRangeException(nameof(cronOption))
+        };
     }
 }
